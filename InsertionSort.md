@@ -4,6 +4,7 @@
 
 __Example__ a sequence of 7 numbers, let's call it `seqA` :
 
+
    |  1  |  2  |  3  |  4  |  5  |   6 |  7  |
    |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
    |  9  |  5  |  6  |  1  |  10 |   4 |  2  |
@@ -13,6 +14,7 @@ __Example__ a sequence of 7 numbers, let's call it `seqA` :
 
 
 __After sorting `seqA` we get__:
+
 
   |  1  |  2  |  3  |  4  |  5  |  6  |   7 |
   |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
