@@ -35,7 +35,7 @@ We will use an index variable `i` to iterate to the right, from 2 to 7 (length o
 
 We will the index variable `left` to iterate to the left of `i`, from `(i-1)` to 1
 
-We scan to the left looking for the insertion position by decrementing `left` while `key < seqA[left]  and left!=1 `
+We scan to the left looking for the insertion position by decrementing `left` while `key < seqA[left]  and left>0 `
 
 __Step 1 :__
 ```
@@ -54,10 +54,10 @@ left iteration 1 :
   left = 2 - 1 = 1
   while ( key < seqA[left]  and left>0 ) do
     //5 < 9  = true && 1>0 = true
-    seqA[left+1] = seqA[left] // 9 -> seqA[2]
+    seqA[left+1] = seqA[left] // seqA[2] <- 9
     left = left - 1
   left=0, so no more elements to compare, so we found the insertion spot at seqA[1].
-  seqA[left+1] = key          // 5 -> seqA[1]
+  seqA[left+1] = key          // seqA[1] <- 5
 ```
 
 | 1   |  2  | ` ` |  3  |  4  |  5  |  6  |  7  |
@@ -73,7 +73,7 @@ key = seqA[3] = 6
 left iteration 1: ( left = i - 1 = 2 )
   while ( key < seqA[left] and left>0 ) do
     // 6 < 9 = true && 2 > 0 = true
-    seqA[left+1] = seqA[left] // 9 -> seqA[3]
+    seqA[left+1] = seqA[left] // seqA[3] <- 9
     left = left - 1           // left =1
 ```
 | 1   |  2  | ` ` |  3  |  4  |  5  |  6  |  7  |
@@ -87,7 +87,7 @@ left iteration 2: left = 1
   Exit while  because 6 < 5 = false
 ```
 
-` seqA[left+1] = key          // 6 -> seqA[2]`
+` seqA[left+1] = key          // seqA[2] <- 6`
 
 | 1   |  2  | ` ` |  3  |  4  |  5  |  6  |  7  |
 |:---:| --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -108,7 +108,7 @@ key = seqA[4] = 1
 left iteration 1: ( left = i - 1 = 3 )
   while ( key < seqA[left] and left>0 ) do
     //1 < 9 = true && 3 > 0 = true
-    seqA[left+1] = seqA[left] // 9 -> seqA[4]
+    seqA[left+1] = seqA[left] // seqA[4] <- 9
     left = left - 1           // left = 2
 ```
 | 1   |  2  |  3  | ` ` |  4  |  5  |  6  |  7  |
@@ -121,7 +121,7 @@ left iteration 1: ( left = i - 1 = 3 )
 left iteration 2: ( left = 2 )
   while ( key < seqA[left] and left>0 ) do
     // 1 < 6 ? = true && 2 > 0 = true
-    seqA[left+1] = seqA[left] // 6 -> seqA[3]
+    seqA[left+1] = seqA[left] // seqA[3] <- 6
     left = left - 1           // left = 1
 ```
 | 1   |  2  |  3  | ` ` |  4  |  5  |  6  |  7  |
@@ -133,7 +133,7 @@ left iteration 2: ( left = 2 )
 left iteration 3: left = 1
   while ( key < seqA[left] and left>0 ) do
     // 1 < 5 = true && 1 > 0 = true
-    seqA[left+1] = seqA[left] // 5 -> seqA[2]
+    seqA[left+1] = seqA[left] // seqA[2] <- 5
     left = left - 1           // left = 0
     Exit while  because left>0 = false
 ```
@@ -142,7 +142,7 @@ left iteration 3: left = 1
 |:---:| --- |:---:|:---:|:---:|:---:|:---:|:---:|
 |  5  | `5` |  6  | ` ` |  9  |  10 |  4  |  2  |
 
-` seqA[left+1] = key          // 1 -> seqA[1]`
+` seqA[left+1] = key          // seqA[1] <- 1`
 
 | 1   |  2  |  3  | ` ` |  4  |  5  |  6  |  7  |
 |:---:| --- |:---:|:---:|:---:|:---:|:---:|:---:|
