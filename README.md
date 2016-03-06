@@ -1,3 +1,4 @@
-## Computer Science Study
+# Computer Science Study
 
-- Code implementation is mine, algorithms are from CS whitepapers and text books.
+- Code implementation is mine, algorithms are from CS white papers and text books.
+
