@@ -39,9 +39,9 @@ We scan to the left looking for the insertion position by decrementing `left` wh
 
 __Step 1 :__
 ```
-i = 2
-
-key = seqA[i] = 5
+i <- 2
+left <- (i - 1) // left <- 2 - 1
+key <- seqA[i] // key <- 5
 ```
 
 | 1   | ` ` |  2  |  3  |  4  |  5  |  6  |  7  |
@@ -49,15 +49,13 @@ key = seqA[i] = 5
 |  9  | ` ` | `5` |  6  |  1  |  10 |  4  |  2  |
 
 ```
-left = (i - 1)
-left iteration 1 :
-  left = 2 - 1 = 1
+left iteration 1 : // left <- 1
   while ( key < seqA[left]  and left>0 ) do
     //5 < 9  = true && 1>0 = true
-    seqA[left+1] = seqA[left] // seqA[2] <- 9
-    left = left - 1
-  left=0, so no more elements to compare, so we found the insertion spot at seqA[1].
-  seqA[left+1] = key          // seqA[1] <- 5
+    seqA[left+1] <- seqA[left] // seqA[2] <- 9
+    left <- left - 1
+  //left=0, so no more elements to compare, so we found the insertion spot at seqA[1].
+  seqA[left+1] <- key          // seqA[1] <- 5
 ```
 
 | 1   |  2  | ` ` |  3  |  4  |  5  |  6  |  7  |
@@ -67,27 +65,28 @@ left iteration 1 :
 
 __Step 2 :__
 ```
-i = i + 1 = 3
-key = seqA[3] = 6
+i <- i + 1 = 3
+left <- i - 1
+key <- seqA[3] = 6
 
-left iteration 1: ( left = i - 1 = 2 )
+left iteration 1: // left <- 2 
   while ( key < seqA[left] and left>0 ) do
     // 6 < 9 = true && 2 > 0 = true
-    seqA[left+1] = seqA[left] // seqA[3] <- 9
-    left = left - 1           // left =1
+    seqA[left+1] <- seqA[left] // seqA[3] <- 9
+    left <- left - 1           // left <- 1
 ```
 | 1   |  2  | ` ` |  3  |  4  |  5  |  6  |  7  |
 |:---:| --- |:---:|:---:|:---:|:---:|:---:|:---:|
 |  5  | `9` | ` ` | `9` |  1  |  10 |  4  |  2  |
 
 ```
-left iteration 2: left = 1
+left iteration 2: //left = 1
   while ( key < seqA[left] and left>0 ) do
     //6 < 5 ? = false && 1 > 0 = true
-  Exit while  because 6 < 5 = false
+  //Exit while  because 6 < 5 = false
 ```
 
-` seqA[left+1] = key          // seqA[2] <- 6`
+` seqA[left+1] <- key      // seqA[2] <- 6`
 
 | 1   |  2  | ` ` |  3  |  4  |  5  |  6  |  7  |
 |:---:| --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -96,8 +95,9 @@ left iteration 2: left = 1
 
 __Step 3 :__
 ```
-i =  i + 1  = 4
-key = seqA[4] = 1
+i <-  i + 1 // i <- 4
+left <- i - 1  
+key <- seqA[4] // key <- 1
 ```
 | 1   |  2  |  3  | ` ` |  4  |  5  |  6  |  7  |
 |:---:| --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -105,11 +105,11 @@ key = seqA[4] = 1
 
 
 ```
-left iteration 1: ( left = i - 1 = 3 )
+left iteration 1: // left <- 3
   while ( key < seqA[left] and left>0 ) do
     //1 < 9 = true && 3 > 0 = true
-    seqA[left+1] = seqA[left] // seqA[4] <- 9
-    left = left - 1           // left = 2
+    seqA[left+1] <- seqA[left] // seqA[4] <- 9
+    left <- left - 1           // left <- 2
 ```
 | 1   |  2  |  3  | ` ` |  4  |  5  |  6  |  7  |
 |:---:| --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -118,11 +118,11 @@ left iteration 1: ( left = i - 1 = 3 )
 
 
 ```
-left iteration 2: ( left = 2 )
+left iteration 2: // left <- 2 
   while ( key < seqA[left] and left>0 ) do
-    // 1 < 6 ? = true && 2 > 0 = true
+    // 1 < 6 = true && 2 > 0 = true
     seqA[left+1] = seqA[left] // seqA[3] <- 6
-    left = left - 1           // left = 1
+    left <- left - 1           // left <- 1
 ```
 | 1   |  2  |  3  | ` ` |  4  |  5  |  6  |  7  |
 |:---:| --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -133,16 +133,16 @@ left iteration 2: ( left = 2 )
 left iteration 3: left = 1
   while ( key < seqA[left] and left>0 ) do
     // 1 < 5 = true && 1 > 0 = true
-    seqA[left+1] = seqA[left] // seqA[2] <- 5
-    left = left - 1           // left = 0
-    Exit while  because left>0 = false
+    seqA[left+1] <- seqA[left] // seqA[2] <- 5
+    left <- left - 1           // left <- 0
+    // Exit while  because left>0 = false
 ```
 
 | 1   |  2  |  3  | ` ` |  4  |  5  |  6  |  7  |
 |:---:| --- |:---:|:---:|:---:|:---:|:---:|:---:|
 |  5  | `5` |  6  | ` ` |  9  |  10 |  4  |  2  |
 
-` seqA[left+1] = key          // seqA[1] <- 1`
+` seqA[left+1] <- key          // seqA[1] <- 1`
 
 | 1   |  2  |  3  | ` ` |  4  |  5  |  6  |  7  |
 |:---:| --- |:---:|:---:|:---:|:---:|:---:|:---:|
