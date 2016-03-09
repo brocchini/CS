@@ -3,8 +3,7 @@ package brocchini.insertionsort
 /**
   * Created by mozart on 3/6/16.
   */
-object InsertionSort {
-
+object InsertionSort extends Sorter{
 
   /**
     *  Very imperative just to read like the algorithm description
@@ -20,25 +19,4 @@ object InsertionSort {
       input(left+1) = key
     }
   }
-
-  /**
-    * More declarative, no mutable variables
-    * Still mutating input
-    */
-  def sort2(input: Array[Int]): Unit  = {
-    for {
-      i <- 1 until input.length; key = input(i)
-    } insert(key,i-1)
-
-    def insert(key:Int, left:Int): Unit = {
-      if (left >= 0 && key < input(left)) {
-        input(left + 1) = input(left)
-        insert(key ,left-1)
-      } else {
-        input(left+1) = key
-      }
-    }
-  }
-
-
 }

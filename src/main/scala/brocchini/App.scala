@@ -7,17 +7,15 @@ import brocchini.insertionsort.InsertionSort
   */
 object App extends App {
 
-
   override def main(args: Array[String]) {
-    demoInsertionSort
-
+    demoInsertionSort()
   }
 
-  def demoInsertionSort: Unit = {
+  def demoInsertionSort(): Unit = {
     val input = Array(9, 5, 6, 1, 10, 4, 2)
     println(s"input[${input.mkString(",")}]")
 
-    InsertionSort.sort2(input)
+    InsertionSort.sort(input)
     println(s"sorted[${input.mkString(",")}]")
   }
 }
