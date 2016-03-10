@@ -1,4 +1,4 @@
-package brocchini.insertionsort;
+package brocchini.cs;
 
 /**
  * Created by mbrocchini on 3/7/2016.

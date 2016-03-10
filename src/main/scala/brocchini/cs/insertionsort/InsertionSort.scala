@@ -1,4 +1,6 @@
-package brocchini.insertionsort
+package brocchini.cs.insertionsort
+
+import brocchini.cs.Sorter
 
 /**
   * Created by mozart on 3/6/16.

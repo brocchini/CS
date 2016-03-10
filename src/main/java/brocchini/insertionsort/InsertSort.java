@@ -1,5 +1,7 @@
 package brocchini.insertionsort;
 
+import brocchini.cs.Sorter;
+
 /**
  * Created by mbrocchini on 3/7/2016.
  */
@@ -21,7 +23,7 @@ public final class InsertSort {
         }
     }
 
-    static class IntSorter implements  Sorter{
+    static class IntSorter implements Sorter {
         @Override
         public  void sort(int[] input) {
             sortInternal(input);

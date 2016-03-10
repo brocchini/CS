@@ -1,11 +1,14 @@
-package brocchini.insertionsort
+package brocchini.cs
 
+import brocchini.cs.insertionsort.{InsertionSort, InsertionSort2}
+import brocchini.cs.mergesort.MergeSort
+import brocchini.insertionsort.InsertSort
 import org.scalatest.FlatSpec
 
 /**
   * Created by mozart on 3/6/16.
   */
-class InsertionSortSpec extends FlatSpec with InsertionSortBehaviors {
+class SorterSpec extends FlatSpec with SorterBehaviors {
 
   def alreadySortedArray = {
     Array(1, 2, 4, 5, 6, 9, 10)
@@ -31,9 +34,7 @@ class InsertionSortSpec extends FlatSpec with InsertionSortBehaviors {
     Array(4)
   }
 
-  def javaSorter = {
-    InsertSort.sorter
-  }
+  lazy val javaSorter = InsertSort.sorter
 
   "InsertionSort sorting sorted array" should behave like sortRandomElements(alreadySortedArray, InsertionSort)
   "InsertionSort sorting inverted array" should behave like sortRandomElements(invertedOrderArray, InsertionSort)
@@ -46,6 +47,12 @@ class InsertionSortSpec extends FlatSpec with InsertionSortBehaviors {
   "InsertionSort2 sorting out of order array" should behave like sortRandomElements(outOfOrderArray, InsertionSort2)
   "InsertionSort2 array of just 1 number" should behave like notChangeJust1Element(just1, InsertionSort2)
   "InsertionSort2 array of all repeated numbers" should behave like notChangeAllRepeatedElements(arrayAllRepeated, InsertionSort2)
+
+  "MergeSort sorting sorted array" should behave like sortRandomElements(alreadySortedArray, MergeSort)
+  "MergeSort sorting inverted array" should behave like sortRandomElements(invertedOrderArray, MergeSort)
+  "MergeSort sorting out of order array" should behave like sortRandomElements(outOfOrderArray, MergeSort)
+  "MergeSort array of just 1 number" should behave like notChangeJust1Element(just1, MergeSort)
+  "MergeSort array of all repeated numbers" should behave like notChangeAllRepeatedElements(arrayAllRepeated, MergeSort)
 
   "javaSorter sorted" should behave like sortRandomElements(alreadySortedArray, javaSorter)
   "javaSorter inverted" should behave like sortRandomElements(invertedOrderArray, javaSorter)

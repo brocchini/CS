@@ -1,11 +1,11 @@
-package brocchini.insertionsort
+package brocchini.cs
 
 import org.scalatest.{FlatSpec, Matchers}
 
 /**
   * Created by mozart on 3/6/16.
   */
-trait InsertionSortBehaviors extends Matchers {
+trait SorterBehaviors extends Matchers {
   this: FlatSpec =>
 
   def sortRandomElements(input: Array[Int], sorter: Sorter) {

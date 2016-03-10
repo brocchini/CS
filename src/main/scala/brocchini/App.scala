@@ -1,6 +1,7 @@
 package brocchini
 
-import brocchini.insertionsort.InsertionSort
+import brocchini.cs.insertionsort.InsertionSort
+import brocchini.cs.mergesort.MergeSort
 
 /**
   * Created by mozart on 3/6/16.
@@ -15,7 +16,7 @@ object App extends App {
     val input = Array(9, 5, 6, 1, 10, 4, 2)
     println(s"input[${input.mkString(",")}]")
 
-    InsertionSort.sort(input)
+    MergeSort.sort(input)
     println(s"sorted[${input.mkString(",")}]")
   }
 }
