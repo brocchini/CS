@@ -1,8 +1,7 @@
 package brocchini.cs
 
-import brocchini.cs.insertionsort.{InsertionSort, InsertionSort2}
+import brocchini.cs.insertionsort.{InsertSort, InsertionSort, InsertionSort2}
 import brocchini.cs.mergesort.MergeSort
-import brocchini.insertionsort.InsertSort
 import org.scalatest.FlatSpec
 
 /**
