@@ -1,7 +1,7 @@
 package brocchini.cs
 
 import brocchini.cs.insertionsort.{InsertSort, InsertionSort, InsertionSort2}
-import brocchini.cs.mergesort.MergeSort
+import brocchini.cs.mergesort.{MergeSorter, MergeSort}
 import org.scalatest.FlatSpec
 
 /**
@@ -34,6 +34,7 @@ class SorterSpec extends FlatSpec with SorterBehaviors {
   }
 
   lazy val javaSorter = InsertSort.sorter
+  lazy val javaMergeSorter = new MergeSorter
 
   "InsertionSort sorting sorted array" should behave like sortRandomElements(alreadySortedArray, InsertionSort)
   "InsertionSort sorting inverted array" should behave like sortRandomElements(invertedOrderArray, InsertionSort)
@@ -58,4 +59,10 @@ class SorterSpec extends FlatSpec with SorterBehaviors {
   "javaSorter sorting out of order array" should behave like sortRandomElements(outOfOrderArray, javaSorter)
   "javaSorter sorting array of just 1 number" should behave like notChangeJust1Element(just1, javaSorter)
   "javaSorter sorting array of all repeated numbers" should behave like notChangeAllRepeatedElements(arrayAllRepeated, javaSorter)
+
+  "MergeSort java sorting sorted array" should behave like sortRandomElements(alreadySortedArray, javaMergeSorter)
+  "MergeSort java sorting inverted array" should behave like sortRandomElements(invertedOrderArray, javaMergeSorter)
+  "MergeSort java sorting out of order array" should behave like sortRandomElements(outOfOrderArray, javaMergeSorter)
+  "MergeSort java array of just 1 number" should behave like notChangeJust1Element(just1, javaMergeSorter)
+  "MergeSort java array of all repeated numbers" should behave like notChangeAllRepeatedElements(arrayAllRepeated, javaMergeSorter)
 }

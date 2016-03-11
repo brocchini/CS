@@ -12,7 +12,11 @@ object MergeSort extends Sorter{
   /** This interface mutates the input just so I can reuse #brocchini.cs.SorterBehaviors tests */
   override def sort(input: Array[Int]): Unit = {
     val sorted = sortInt( input )
-    sorted.foldLeft(0){(i,e) => input(i)= e; i+1}
+    mutateInputJustToReuseTests(input, sorted)
+  }
+
+  private[this] def mutateInputJustToReuseTests(input: Array[Int], sorted: Array[Int]): Unit = {
+    sorted.foldLeft(0) { (i, e) => input(i) = e; i + 1 }
   }
 
   def sortInt(input: Array[Int]) : Array[Int] = {

@@ -9,7 +9,7 @@ trait SorterBehaviors extends Matchers {
   this: FlatSpec =>
 
   def sortRandomElements(input: Array[Int], sorter: Sorter) {
-    it should "sort an array already sorted " in {
+    it should "sort an array without repeated elements" in {
       sorter.sort(input)
       input(0) should be(1)
       input(1) should be(2)
