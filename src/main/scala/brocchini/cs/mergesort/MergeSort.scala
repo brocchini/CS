@@ -46,7 +46,6 @@ object MergeSort extends Sorter{
         r += 1
       }
       i += 1
-      println()
     }
     result
   }
