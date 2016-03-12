@@ -1,7 +1,6 @@
 package brocchini
 
-import brocchini.cs.insertionsort.InsertionSort
-import brocchini.cs.mergesort.MergeSort
+import brocchini.cs.sort.{InsertionSort, MergeSort}
 
 /**
   * Created by mozart on 3/6/16.

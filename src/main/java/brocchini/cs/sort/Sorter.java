@@ -1,7 +1,7 @@
-package brocchini.cs;
+package brocchini.cs.sort;
 
 /**
- * Created by mbrocchini on 3/7/2016.
+ * Created by mozart on 3/7/2016.
  */
 public interface Sorter {
      void sort(int[] input );

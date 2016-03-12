@@ -1,6 +1,4 @@
-package brocchini.cs.mergesort;
-
-import brocchini.cs.Sorter;
+package brocchini.cs.sort;
 
 /**
  * Created by mozart on 3/10/16.
@@ -58,10 +56,10 @@ public class MergeSorter implements Sorter {
         int rightSize = input.length - leftSize;
 
         int[] left = new int[leftSize];
-        for (int i=0;i<leftSize; i++){ left[i] = input[i]; }
+        for (int i=0;i<leftSize; i++){ left[i] = input[i]; } //For efficiency use System.arraycopy(input, 0, left, 0, leftSize);
 
         int[] right = new int[rightSize];
-        for (int i=0;i<rightSize; i++){ right[i] = input[i+leftSize]; }
+        for (int i=0;i<rightSize; i++){ right[i] = input[i+leftSize]; }// For efficiency use System.arraycopy(input, 0 + leftSize, right, 0, rightSize);
 
         return new int[][]{left,right};
     }
