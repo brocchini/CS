@@ -1,4 +1,4 @@
-package brocchini.cs.sort.sort;
+package brocchini.cs.sort;
 
 /**
  * Created by mozart on 3/10/16.

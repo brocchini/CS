@@ -1,6 +1,5 @@
 package brocchini.cs.datastruct
 
-import brocchini.cs.sort.datastruct.IntHeap
 import org.scalatest.{FlatSpec, Matchers}
 
 /**

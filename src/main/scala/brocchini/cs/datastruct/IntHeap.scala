@@ -1,4 +1,4 @@
-package brocchini.cs.sort.datastruct
+package brocchini.cs.datastruct
 
 /**
   * Created by Mozart on 3/12/2016.
