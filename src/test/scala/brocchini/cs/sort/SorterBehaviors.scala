@@ -1,6 +1,6 @@
-package brocchini.cs
+package brocchini.cs.sort
 
-import brocchini.cs.sort.Sorter
+import brocchini.cs.sort.sort.Sorter
 import org.scalatest.{FlatSpec, Matchers}
 
 /**

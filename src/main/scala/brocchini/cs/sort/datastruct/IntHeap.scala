@@ -1,4 +1,4 @@
-package brocchini.cs.datastruct
+package brocchini.cs.sort.datastruct
 
 /**
   * Created by Mozart on 3/12/2016.
@@ -8,12 +8,16 @@ object IntHeap {
   def maxHeapify(input: Array[Int], i: Int): Unit = {
     val lPos = left(i)
     val rPos = right(i)
-    var largest = if (lPos < input.length && input(lPos) > input(i)) lPos else i
-    largest = if (rPos < input.length && input(rPos) > input(largest)) rPos else largest
+    val largest = biggest(input, i, lPos, rPos)
     if (largest != i) {
       exchange(input, i, largest)
       maxHeapify(input, largest)
     }
+  }
+
+  def biggest(input: Array[Int], i: Int, lPos: Int, rPos: Int): Int = {
+    val largest = if (lPos < input.length && input(lPos) > input(i)) lPos else i
+    if (rPos < input.length && input(rPos) > input(largest)) rPos else largest
   }
 
   def buildMaxHeap(input: => Array[Int]): Unit = {
@@ -29,11 +33,15 @@ object IntHeap {
     input(largest) = iEl
   }
 
-  def left(pos: Int): Int = {
-    2 * pos + 1
+  def left(i: Int): Int = {
+    2 * i + 1
   }
 
-  def right(pos: Int): Int = {
-    left(pos) + 1
+  def right(i: Int): Int = {
+    left(i) + 1
+  }
+
+  def parent(i: Int): Int = {
+    (i -1) / 2
   }
 }

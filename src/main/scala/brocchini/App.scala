@@ -1,7 +1,6 @@
 package brocchini
 
-import brocchini.cs.datastruct.IntHeap
-import brocchini.cs.sort.{InsertionSort, MergeSort}
+import brocchini.cs.sort.datastruct.IntHeap
 
 /**
   * Created by mozart on 3/6/16.

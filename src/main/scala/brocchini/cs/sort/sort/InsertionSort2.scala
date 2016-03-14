@@ -1,4 +1,4 @@
-package brocchini.cs.sort
+package brocchini.cs.sort.sort
 
 /**
   * Created by mbrocchini on 3/7/2016.
