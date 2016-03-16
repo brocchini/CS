@@ -10,7 +10,7 @@ import scala.collection.JavaConversions._
   */
 class HeapListSpec extends FlatSpec with Matchers {
 
-  "A heap list " should " arrange items in list according to heap order" in {
+  "An heap list of integers" should " arrange items in list according to heap order" in {
     val intHeap = new Heap[Int]
 
     val input = util.Arrays.asList(4, 1, 3, 2, 16, 9, 10, 14, 8, 7)
@@ -26,6 +26,17 @@ class HeapListSpec extends FlatSpec with Matchers {
     input(8) should be(4)
     input(9) should be(1)
 
+  }
+
+  "A heap list of strings" should " arrange items in list according to heap order" in {
+    val intHeap = new Heap[String]
+
+    val input = util.Arrays.asList("abc", "def", "ghi", "lmn")
+    intHeap.buildMaxHeap(input)
+    input(0) should be("lmn")
+    input(1) should be("def")
+    input(2) should be("ghi")
+    input(3) should be("abc")
   }
 
 }
