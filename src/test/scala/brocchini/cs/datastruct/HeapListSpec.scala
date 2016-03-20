@@ -4,6 +4,7 @@ import java.util
 
 import org.scalatest.{Matchers, FlatSpec}
 import scala.collection.JavaConversions._
+import scala.collection.mutable.ListBuffer
 
 /**
   * Created by mbrocchini on 3/15/2016.
@@ -29,10 +30,10 @@ class HeapListSpec extends FlatSpec with Matchers {
   }
 
   "A heap list of strings" should " arrange items in list according to heap order" in {
-    val intHeap = new Heap[String]
+    val sHeap = new Heap[String]
 
     val input = util.Arrays.asList("abc", "def", "ghi", "lmn")
-    intHeap.buildMaxHeap(input)
+    sHeap.buildMaxHeap(input)
     input(0) should be("lmn")
     input(1) should be("def")
     input(2) should be("ghi")

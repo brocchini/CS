@@ -5,26 +5,26 @@ package brocchini.cs.datastruct
   */
 object IntHeap {
 
-  def maxHeapify(input: Array[Int], i: Int): Unit = {
-    val lPos = left(i)
-    val rPos = right(i)
-    val largest = biggest(input, i, lPos, rPos)
-    if (largest != i) {
+  def maxHeapify(input: Array[Int], i: Int, depth: Int): Unit = {
+    val largest = biggest(input, i, depth)
+    if (largest != i & largest <= depth) {
       exchange(input, i, largest)
-      maxHeapify(input, largest)
+      maxHeapify(input, largest, depth)
     }
   }
 
-  def biggest(input: Array[Int], i: Int, lPos: Int, rPos: Int): Int = {
-    val largest = if (lPos < input.length && input(lPos) > input(i)) lPos else i
-    if (rPos < input.length && input(rPos) > input(largest)) rPos else largest
+  def biggest(input: Array[Int], i: Int, depth: Int): Int = {
+    val leftIdx = left(i)
+    val rightIdx = right(i)
+    val largest = if (leftIdx <= depth && input(leftIdx) > input(i)) leftIdx else i
+    if (rightIdx <= depth && input(rightIdx) > input(largest)) rightIdx else largest
   }
 
   def buildMaxHeap(input: => Array[Int]): Unit = {
     val len = input.length
     for {
       i <- (len / 2) to 0 by -1
-    } maxHeapify(input, i)
+    } maxHeapify(input, i, len - 1)
   }
 
   def exchange(input: => Array[Int], i: Int, largest: Int): Unit = {
@@ -42,6 +42,6 @@ object IntHeap {
   }
 
   def parent(i: Int): Int = {
-    (i -1) / 2
+    (i - 1) / 2
   }
 }

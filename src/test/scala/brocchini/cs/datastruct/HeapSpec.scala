@@ -24,4 +24,21 @@ class HeapSpec extends FlatSpec with Matchers {
     input(9) should be(1)
   }
 
+  "A heap of 3 elements" should " arrange the items like a heap " in {
+    val input = Array(1, 2, 3)
+    IntHeap.buildMaxHeap(input)
+
+    input(0) should be(3)
+    input(1) should be(2)
+    input(2) should be(1)
+  }
+
+
+  "A heap of 2 elements" should " arrange the items like a heap " in {
+    val input = Array(1, 2)
+    IntHeap.buildMaxHeap(input)
+
+    input(0) should be(2)
+    input(1) should be(1)
+  }
 }

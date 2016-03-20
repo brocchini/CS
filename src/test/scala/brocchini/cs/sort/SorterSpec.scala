@@ -63,4 +63,10 @@ class SorterSpec extends FlatSpec with SorterBehaviors {
   "MergeSort java sorting out of order array" should behave like sortRandomElements(outOfOrderArray, javaMergeSorter)
   "MergeSort java array of just 1 number" should behave like notChangeJust1Element(just1, javaMergeSorter)
   "MergeSort java array of all repeated numbers" should behave like notChangeAllRepeatedElements(arrayAllRepeated, javaMergeSorter)
+
+  "HeapSort sorting sorted array" should behave like sortRandomElements(alreadySortedArray, HeapSort)
+  "HeapSort sorting inverted array" should behave like sortRandomElements(invertedOrderArray, HeapSort)
+  "HeapSort sorting  out of order array" should behave like sortRandomElements(outOfOrderArray, HeapSort)
+  "HeapSort sorting  array of just 1 number" should behave like notChangeJust1Element(just1, HeapSort)
+  "HeapSort sorting  array of all repeated numbers" should behave like notChangeAllRepeatedElements(arrayAllRepeated, HeapSort)
 }
